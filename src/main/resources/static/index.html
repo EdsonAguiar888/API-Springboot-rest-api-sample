@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>title</title>
+
+
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+	
+	<style type="text/css">
+	
+		@media screen and (max-width: 845px ) {
+		    .content {
+		    
+		    width: 490px;
+		    height: 400px;
+		           
+		    }
+		}
+	
+		@media screen and (max-width: 845px ) {
+		    .main {
+		    display: flex;
+			position: relative;
+			height: 100vh;
+			width: 100%;
+			
+		           
+		    }
+		}
+	
+		*{
+			margin: o;
+			padding: 0;
+			box-sizing: 0;
+			outline: 0;
+			
+		}
+		.main{
+			display: flex;
+			position: relative;
+			flex-direction: row;
+   			justify-content: center;
+			height: 100vh;
+			width: 100%;
+			background-image: url('https://cdn4.focus.bg/fakti/photos/16x9/97b/rosatom-zapochva-proekt-za-kvantov-internet-1.jpg');
+			background-repeat: no-repeat;
+    		background-size: 100%;
+									
+		}
+	
+		.content{
+			
+			
+			margin-top: 55px;
+	        align-items: center;
+	        background-image:url("https://s3.ap-southeast-1.amazonaws.com/arrowhitech.com/wp-content/uploads/2021/06/19143342/Sorting-algorithms-java-2.jpg");
+	        display: flex;
+	        flex-direction: column;    
+	        justify-content: center;
+	        width: 590px;
+	        height: 500px;
+	        padding: 40px;
+	        box-sizing:border-box;
+	        position: absolute;
+	        background-size: 590px 500px;
+	        background-repeat: no-repeat;
+		
+		}
+		
+		.header{
+			padding: 20px;
+		}
+		
+
+		h3{
+			background-color: darkgray;
+    		padding: 15px;
+    		text-align-last: center;
+			}
+			
+		.btn{
+			height: 36px;
+			width: 88px;
+		}
+		
+	</style>
+
+</head>
+
+<form action="" id="formCadastroUser">
+
+	<body>
+	
+	<div class = "main">
+	
+	
+	<div class = "content">
+		<h3>Spring Boot Rest API CRUD completo em JAVA</h3>
+
+
+	<div class = "header">
+		
+		<div class = "Inputs" >
+
+		<div class="mb-3">
+			<label for="id" class="form-label">ID</label> <input type="text"
+				class="form-control" id="id" readonly="readonly"">
+		</div>
+
+		<div class="mb-3">
+			<label for="nome" class="form-label">Nome do usuario</label> <input
+				type="text" class="form-control" id="nome"
+				placeholder="Informe o nome" required="required">
+		</div>
+
+		<div class="mb-3">
+			<label for="idade" class="form-label">Idade</label> <input
+				type="number" class="form-control" id="idade"
+				placeholder="Informe a idade">
+		</div>
+		
+		</div>
+		
+		<div class = "button">
+</form>
+<button type="button" class="btn btn-secondary btn" onclick="document.getElementById('formCadastroUser').reset()">Novo</button>
+	
+<button type="button" class="btn btn-primary btn" onclick="salvarUsuario()">Salvar</button>
+
+<button type="button"  class="btn btn-danger btn" onclick= "deletarDaTela()">Deletar</button>
+
+<button type="button" class="btn btn-success btn" data-bs-toggle="modal" data-bs-target="#modalPesquisarUser">Pesquisar</button>
+
+		</div>
+
+
+
+
+<div class="modal fade" id="modalPesquisarUser" tabindex="-1"
+	aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Pesquisar
+					usuario</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+					aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+			
+			
+			
+				<form>
+					<div class="mb-3">
+						<label for="nomeBusca" class="col-form-label">Informe o	nome:</label> <input type="text" class="form-control" id="nomeBusca">
+					</div>					
+					<button type="button" class="btn btn-success" onclick="pesquisarUser()" >Buscar</button>
+				</form>
+				
+				
+				
+
+				<table class="table" id="tabelaresultados">
+					<thead>
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">Nome</th>
+							<th scope="col">Editar</th>
+							<th scope="col">Deletar</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary"
+					data-bs-dismiss="modal">Fechar</button>
+
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+	integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+	crossorigin="anonymous"></script>
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+	function pesquisarUser(){		
+	
+		var nome = $('#nomeBusca').val();	
+		
+		if (nome != null && nome.trim() != ''){
+			
+			$.ajax({
+				method : "GET",
+				url : "buscarPorNome",
+				data : "name=" + nome ,					
+				success : function(response) {
+					$('#tabelaresultados > tbody > tr').remove();
+					
+					for (var i = 0; i < response.length; i++){
+						
+						$('#tabelaresultados > tbody').append('<tr id="'+response[i].id+'"><td>'+response[i].id+'</td><td>'+response[i].nome+'</td><td><button type="button" onclick="colcarEmEdicao('+response[i].id+')" class="btn btn-primary">Ver</button></td><td><button type="button" onclick= "deleteUser('+response[i].id+')" class="btn btn-danger">Del</button></td></tr>'); 
+															//  '<tr><td>'+   +'</td><td>'+   +'</td></tr>' 
+					}				
+				}
+			}).fail(function(xhr, status, errorThrown) {
+				alert("Erro ao buscar usuario: " + xhr.responseText);
+			});
+		}
+	}
+	
+	
+	function deletarDaTela(){		
+		
+		var id = $('#id').val();
+		
+		if(id != null && id != ''){			
+			deleteUser(id);					
+			document.getElementById('formCadastroUser').reset();
+		}		
+	}
+		
+	
+	function deleteUser(id){
+		
+		if(confirm("Deseja realmente deletar?")){
+			
+		$.ajax({
+			method : "DELETE",
+			url : "delete",
+			data : "iduser=" + id ,					
+			success : function(response) {
+				
+				$('#' + id).remove();
+				
+				alert(response);
+			}
+		}).fail(function(xhr, status, errorThrown) {
+			alert("Erro ao deletar usuario : " + xhr.responseText);
+		});
+		
+		}		
+	}		
+	
+	function colcarEmEdicao(id){
+		
+		$.ajax({
+			method : "GET",
+			url : "buscaruserid",
+			data : "iduser=" + id ,					
+			success : function(response) {
+				
+				$("#id").val(response.id);
+				$("#nome").val(response.nome);
+				$("#idade").val(response.idade);
+				
+				$('#modalPesquisarUser').modal('hide');
+			}
+		}).fail(function(xhr, status, errorThrown) {
+			alert("Erro ao buscar usuario por id: " + xhr.responseText);
+		});		
+	}
+
+	
+	
+	function salvarUsuario() {
+		var id = $("#id").val();
+		var nome = $("#nome").val();
+		var idade = $("#idade").val();
+
+		if (nome == null || nome != null && nome.trim() == ''){
+			$("#nome").focus();
+			alert("Informe o nome!!!");
+			return;
+		}
+		
+		if (idade == null || idade != null && idade.trim() == ''){
+			$("#idade").focus();
+			alert("Informe a idade!!!")
+			return;
+		}
+		
+		$.ajax({
+			method : "POST",
+			url : "salvar",
+			data : JSON.stringify({
+				id : id,
+				nome : nome,
+				idade : idade
+			}),
+			contentType : "application/json; charset-utf -8",
+			success : function(response) {
+
+				$("#id").val(response.id);
+				alert("Salvo com sucesso...")
+			}
+
+		}).fail(function(xhr, status, errorThrown) {
+			alert("Erro ao salvar usuario: " + xhr.responseText);
+		})
+	}
+</script>
+</div>
+</div>
+</body>
+
+</html>
