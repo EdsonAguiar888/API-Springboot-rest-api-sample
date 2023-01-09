@@ -19,6 +19,3 @@ public class Application {
 
 
 
-// Parou no video 14   http://tmyun.com/jpeg/yun_14202.jpg
-
-// ctrl + shift + F ==> organiza identacao
